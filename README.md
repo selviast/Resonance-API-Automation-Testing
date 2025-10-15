@@ -1,2 +1,2 @@
-# restAssured-example
+# restAssured
 
