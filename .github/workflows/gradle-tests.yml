@@ -1,0 +1,41 @@
+name: API Tests (Gradle)   # Nama workflow yang akan tampil di tab Actions
+
+on:
+  workflow_dispatch:       # Workflow bisa dijalankan manual via GitHub Actions UI
+  push:                    # Workflow otomatis jalan ketika ada commit/push ke branch main
+    branches: [ "main" ]
+  pull_request:            # Workflow juga akan otomatis jalan ketika ada Pull Request (PR) ke branch main
+    branches: [ "main" ]
+
+jobs:
+  Api-Rest-Assured:
+    runs-on: ubuntu-latest # Mesin/runner yang akan digunakan adalah Ubuntu versi terbaru (disediakan oleh GitHub)
+
+    steps:
+      # 1. Mengambil source code dari repository GitHub agar bisa dipakai di step berikutnya
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Menyiapkan Java Development Kit (JDK) versi 17
+      #    Karena project ini menggunakan Gradle + RestAssured yang butuh JDK
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin     # Temurin adalah salah satu distribusi JDK open-source yang umum dipakai
+          java-version: 17          # Versi JDK yang sesuai dengan build.gradle/project
+
+      # 3. Memberikan akses permission agar file gradlew bisa dijalankan di sistem Linux (default Ubuntu runner)
+      - name: Grant execute permission for Gradlew
+        run: chmod +x gradlew
+
+      # 4. Menjalankan perintah Gradle untuk membersihkan project (clean) lalu menjalankan semua test (test)
+      #    Di tahap ini semua API test dengan RestAssured/TestNG akan dieksekusi
+      - name: Run Tests with Gradle
+        run: ./gradlew clean test
+
+      # 5. Menyimpan hasil test (laporan test dalam format XML/HTML) agar bisa dilihat di GitHub Actions
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results        # Nama file/artifact yang akan muncul di tab workflow GitHub
+          path: build/test-results/test # Path folder hasil test report yang dibuat Gradle
