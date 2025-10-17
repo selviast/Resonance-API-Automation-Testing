@@ -7,7 +7,7 @@ public class LoginBody {
 
     public JSONObject loginData() {
         JSONObject body = new JSONObject();
-        body.put("email", ConfigReader.getProperty("email"));
+        body.put("usernameOrEmail", ConfigReader.getProperty("email"));
         body.put("password", ConfigReader.getProperty("password"));
         return body;
     }

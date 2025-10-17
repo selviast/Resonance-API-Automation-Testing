@@ -3,10 +3,10 @@
     <test name="Sport Activity Tests">
         <classes>
             <class name="tests.auth.LoginTest"/>
-            <class name="tests.sportActivity.CreateSportActivityTest"/>
-            <class name="tests.sportActivity.GetSportActivityByIdTest"/>
-            <class name="tests.sportActivity.UpdateSportActivityTest"/>
-            <class name="tests.sportActivity.DeleteSportActivityByIdTest"/>
+            <class name="tests.resonanceDibimbing.CreateTicketTest"/>
+<!--            <class name="tests.sportActivity.GetSportActivityByIdTest"/>-->
+<!--            <class name="tests.sportActivity.UpdateSportActivityTest"/>-->
+<!--            <class name="tests.sportActivity.DeleteSportActivityByIdTest"/>-->
         </classes>
     </test>
 </suite>
