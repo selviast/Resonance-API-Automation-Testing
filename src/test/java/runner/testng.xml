@@ -1,10 +1,19 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="API Test Suite" verbose="1" parallel="false">
-    <test name="Sport Activity Tests">
+    <test name="Resonance Dibimbing Tests">
         <classes>
             <class name="tests.auth.LoginTest"/>
             <class name="tests.resonanceDibimbing.CreateTicketTest"/>
-<!--            <class name="tests.sportActivity.GetSportActivityByIdTest"/>-->
+            <class name="tests.resonanceDibimbing.GetMyTicketsTest"/>
+            <class name="tests.resonanceDibimbing.GetTicketByIdTest"/>
+            <class name="tests.resonanceDibimbing.UpdateStatusTicketById"/>
+            <class name="tests.resonanceDibimbing.DeleteTicketByIdTest"/>
+
+
+
+
+            <!--            <class name="tests.auth.BasicLoginTest"/>-->
+<!--            <class name="tests.sportActivity.CreateSportActivityTest"/>-->
 <!--            <class name="tests.sportActivity.UpdateSportActivityTest"/>-->
 <!--            <class name="tests.sportActivity.DeleteSportActivityByIdTest"/>-->
         </classes>

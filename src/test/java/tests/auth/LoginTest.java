@@ -23,7 +23,7 @@ public class LoginTest {
         // Buat body login
         LoginBody loginBody = new LoginBody();
 
-        // Kirim request POST ke endpoint login
+        // Kirim request POST ke endpoint login REST
         Response response = given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
@@ -43,22 +43,15 @@ public class LoginTest {
         Assert.assertFalse(token.isEmpty(), "Token should not be empty");
         System.out.println("Token: " + token);
 
-        // Ambil session cookie jika ada (untuk NextAuth / TRPC)
-        String sessionCookie = response.getCookie("__Secure-next-auth.session-token");
-        if (sessionCookie != null && !sessionCookie.isEmpty()) {
-            System.out.println("Session cookie: " + sessionCookie);
-        }
-
-        // Simpan token & session cookie ke file JSON
-        JSONObject tokenJson = new JSONObject();
-        tokenJson.put("token", token);
-        tokenJson.put("sessionToken", sessionCookie != null ? sessionCookie : "");
-
-        try (FileWriter file = new FileWriter("src/resources/json/token.json")) {
-            file.write(tokenJson.toString(4)); // 4 = indentation
-            file.flush();
-        }
-
-        System.out.println("Token & session cookie berhasil disimpan di resources/json/token.json");
+//        // Simpan token ke file JSON (sessionToken dihapus)
+//        JSONObject tokenJson = new JSONObject();
+//        tokenJson.put("token", token);
+//
+//        try (FileWriter file = new FileWriter("src/resources/json/token.json")) {
+//            file.write(tokenJson.toString(4)); // 4 = indentation
+//            file.flush();
+//        }
+//
+//        System.out.println("Token berhasil disimpan di resources/json/token.json");
     }
 }
