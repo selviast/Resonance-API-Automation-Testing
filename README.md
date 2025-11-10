@@ -17,7 +17,7 @@ OR
 - Click Code > download zip 
 
 ## How to add Object Files:
-- src/test/java/dibimbing/pages
+- src/main/java/dibimbing/pages
 
 ## How to add Test Files:
 - src/test/java/dibimbing/tests
