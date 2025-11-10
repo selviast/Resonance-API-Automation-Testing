@@ -10,16 +10,19 @@
 gradlew clean test 
 
 ## Clone: 
-- Git clone [url](https://github.com/selviast/Resonance-API-Automation-Testing.git)
+- Git clone https://github.com/selviast/Resonance-API-Automation-Testing.git
+  
 OR
+
 - Click Code > download zip 
 
-## How to add Object:
+## How to add Object Files:
 - src/test/java/dibimbing/pages
 
-## How to add Object:
+## How to add Test Files:
 - src/test/java/dibimbing/tests
 
+==============================================================
 
 Final Project: API Testing for Resonance Web Using Rest Assured.
 
